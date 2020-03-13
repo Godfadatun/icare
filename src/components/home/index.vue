@@ -1,0 +1,53 @@
+<template>
+  <div class="q-gutter-y-md">
+    <q-carousel v-model="slide">
+      <q-carousel-slide name="style" class="" img-src="statics/image/laurynas-mereckas-1TL8AoEDj_c-unsplash.jpg">
+        <div class="absolute-full column flex-center" style="background-color: rgba(0, 0, 0, 0.6);">
+          <q-icon name="ion-ios-medkit" color="negative" size="100px" />
+          <div class="q-mt-md text-center text-white text-h4">
+          Prescription & Emergency Manager
+          </div>
+          <div class="row q-gutter-sm q-my-sm">
+             <q-btn color="secondary" no-caps text-color="white" label="Login" />
+             <q-btn color="white" outline no-caps text-color="white" label="SignUp" />
+          </div>
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+    <div class="text-h4 text-bold text-center">
+        How it Works
+      </div>
+      <howitWorks :props="content" />
+  </div>
+</template>
+
+<script>
+import howitWorks from './partials/howitworks'
+export default {
+  components:{
+    howitWorks
+  },
+  // name: 'ComponentName',
+  data () {
+    return {
+      slide: 'style',
+      content: [
+        {
+          icon: 'ion-log-in',
+          title: 'Register'
+        },
+        {
+          icon: 'ion-ios-alarm',
+          title: 'Add your Reminders',
+          more: ['Doctors Appointment', 'Taking medications']
+        },
+        {
+          icon: 'ion-heart',
+          title: 'Get back your health'
+        },
+
+      ]
+    }
+  }
+}
+</script>
