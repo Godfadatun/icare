@@ -5,19 +5,23 @@
         Your Prescription
       </q-toolbar-title>
       <AddPrescription />
-      <q-btn size="sm" no-caps label="Appointment Reminder" class="q-mr-xs gt-xs" />
-      <q-btn size="sm" no-caps label="Nearest Pharmacist" color="blue-7" class="q-mr-xs gt-xs" />
-      <q-btn size="sm" no-caps color="negative" label="Nearest Clinic" class="gt-xs" />
+      <q-btn size="sm" no-caps label="Appointment Reminder" class="q-mr-xs gt-xs">
+         
+
+      </q-btn>
+      <q-btn :to="{name: 'pharmacy'}" size="sm" no-caps label="Nearest Pharmacist" color="blue-7" class="q-mr-xs gt-xs" />
+      <q-btn :to="{name: 'hospital'}" size="sm" no-caps color="negative" label="Nearest Clinic" class="gt-xs" />
     </q-toolbar>
   </div>
 </template>
 
 <script>
 import AddPrescription from './addPresc'
+import Notification from '../../common/Notification'
 export default {
   // name: 'ComponentName',
   components:{
-    AddPrescription
+    AddPrescription, Notification
   },
   data () {
     return {}

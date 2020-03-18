@@ -17,7 +17,11 @@
         </q-toolbar-title>
 
         <div class="row" v-if="route == 'prescription' || route == 'ambulance' || route == 'notification' || route == 'settings'">
-          <q-btn flat color="white" round icon="notifications" />
+          <q-btn flat color="white" round icon="notifications" >
+            <q-popup-proxy>
+           <Notification/>
+        </q-popup-proxy>
+          </q-btn>
           <q-btn flat color="white" round icon="settings" />
         </div>
          <!-- <q-btn no-caps color="secondary" text-color="white" :to="{name: 'login'}" label="Login" /> -->
@@ -43,7 +47,7 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink'
-
+import Notification from '../components/common/Notification'
 export default {
   name: 'MainLayout',
 
