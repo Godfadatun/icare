@@ -9,14 +9,18 @@
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
-          class="lt-md"
+          class="lt-sm"
         />
 
-        <q-toolbar-title>
-          ICare
+        <q-toolbar-title class="link" @click="$router.push({name: 'home'})">
+          ICare1
         </q-toolbar-title>
 
-         <q-btn no-caps color="secondary" text-color="white" label="Login" />
+        <div class="row" v-if="route == 'prescription' || route == 'ambulance' || route == 'notification' || route == 'settings'">
+          <q-btn flat color="white" round icon="notifications" />
+          <q-btn flat color="white" round icon="settings" />
+        </div>
+         <!-- <q-btn no-caps color="secondary" text-color="white" :to="{name: 'login'}" label="Login" /> -->
 
       </q-toolbar>
     </q-header>
@@ -27,17 +31,7 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <EssentialLink />
       </q-list>
     </q-drawer>
 
@@ -99,6 +93,10 @@ export default {
         }
       ]
     }
-  }
+  },
+
+  computed: {
+    route(){return this.$route.name}
+  },
 }
 </script>

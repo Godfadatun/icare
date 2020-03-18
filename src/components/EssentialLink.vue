@@ -1,29 +1,23 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
-      <q-icon :name="icon" />
-    </q-item-section>
-
-    <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>
-        {{ caption }}
-      </q-item-label>
-    </q-item-section>
+<div>
+  <q-item clickable >
+    <q-btn size="sm" no-caps label="Appointment Reminder" class="full-width" />
   </q-item>
+  <q-item clickable >
+    <q-btn size="sm" no-caps label="Nearest Pharmacist" color="blue-7" class="full-width" />
+  </q-item>
+  <q-item clickable >
+    <q-btn size="sm" no-caps color="negative" label="Nearest Clinic" class="full-width"/>
+  </q-item>
+</div>
+
+
 </template>
 
 <script>
 export default {
   name: 'EssentialLink',
+
   props: {
     title: {
       type: String,

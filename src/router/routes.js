@@ -4,7 +4,12 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { name: 'home', path: '', component: () => import('pages/Index.vue') },
+      { name: 'prescription', path: 'prescription', component: () => import('pages/Prescription.vue') },
+      { name: 'ambulance', path: 'ambulance', component: () => import('pages/Ambulance.vue') },
+      { name: 'login', path: 'login', component: () => import('pages/Auth.vue') },
+      { name: 'register', path: 'register', component: () => import('pages/Auth.vue') },
+      { name: 'forgot', path: 'forgot', component: () => import('pages/Auth.vue') },
     ]
   }
 ]

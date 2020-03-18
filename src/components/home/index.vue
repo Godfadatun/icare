@@ -8,24 +8,29 @@
           Prescription & Emergency Manager
           </div>
           <div class="row q-gutter-sm q-my-sm">
-             <q-btn color="secondary" no-caps text-color="white" label="Login" />
-             <q-btn color="white" outline no-caps text-color="white" label="SignUp" />
+             <q-btn color="secondary" no-caps text-color="white" :to="{name: 'login'}" label="Login" />
+             <q-btn color="white" outline no-caps text-color="white" :to="{name: 'register'}" label="SignUp" />
           </div>
         </div>
       </q-carousel-slide>
     </q-carousel>
     <div class="text-h4 text-bold text-center">
-        How it Works
-      </div>
-      <howitWorks :props="content" />
+      How it Works
+    </div>
+    <howitWorks :props="content" />
+    <div class="text-h4 text-bold text-center">
+      Services
+    </div>
+    <services :props="my_services" />
   </div>
 </template>
 
 <script>
 import howitWorks from './partials/howitworks'
+import services from './partials/services'
 export default {
   components:{
-    howitWorks
+    howitWorks, services
   },
   // name: 'ComponentName',
   data () {
@@ -46,7 +51,21 @@ export default {
           title: 'Get back your health'
         },
 
-      ]
+      ],
+      my_services: [
+        {
+          name: 'Prescription',
+          img: 'statics/image/arron-choi-mDV069h4OB4-unsplash.jpg'
+        },
+        {
+          name: 'Ambulance',
+          img: 'statics/image/bill-oxford-8u_2imJaVQs-unsplash.jpg'
+        },
+        {
+          name: 'Medical Facilities',
+          img: 'statics/image/sharon-mccutcheon-FEPfs43yiPE-unsplash.jpg'
+        }
+          ]
     }
   }
 }
