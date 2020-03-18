@@ -11,6 +11,9 @@ const routes = [
       { name: 'forgot', path: 'forgot', component: () => import('pages/Auth.vue') },
       { name: 'pharmacy', path: 'pharmacy', component: () => import('pages/Ambulance.vue') },
       { name: 'hospital', path: 'hospital', component: () => import('pages/Ambulance.vue') },
+      { name: 'setting', path: 'setting', component: () => import('pages/Setting.vue') },
+      { name: 'addPrescription', path: 'addPrescription', component: () => import('pages/AddPrescription.vue') },
+
     ]
   }
 ]
