@@ -13,7 +13,7 @@ const routes = [
       { name: 'hospital', path: 'hospital', component: () => import('pages/Ambulance.vue') },
       { name: 'setting', path: 'setting', component: () => import('pages/Setting.vue') },
       { name: 'addPrescription', path: 'addPrescription', component: () => import('pages/AddPrescription.vue') },
-
+      { name: 'notification', path: 'notification', component: () => import('pages/Notification.vue') },
     ]
   }
 ]

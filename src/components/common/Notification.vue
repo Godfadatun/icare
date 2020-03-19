@@ -5,8 +5,8 @@
         Notification
       </q-card-section>
       <q-card-section>
-        <q-list bordered separator>
-          <q-item v-for="(item, index) in items" :key="index">
+        <q-list separator>
+          <q-item v-for="(item, index) in data" :key="index">
             <q-item-section>
               <q-item-label>{{item.Drug}}</q-item-label>
               <q-item-label caption lines="2">{{item.time}}</q-item-label>
@@ -16,8 +16,10 @@
             </q-item-section>
           </q-item>
         </q-list>
-
       </q-card-section>
+      <q-card-actions align="center">
+        <q-btn :to="{name: 'notification'}" outline no-caps size="sm" color="primary" label="Read All" />
+      </q-card-actions>
     </q-card>
 
   </div>
@@ -46,7 +48,7 @@ export default {
           value: false,
         },
       ]
-      ]
+
     }
   }
 }

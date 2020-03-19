@@ -19,8 +19,8 @@
         <div class="row" v-if="route == 'prescription' || route == 'ambulance' || route == 'notification' || route == 'settings'">
           <q-btn flat color="white" round icon="notifications" >
             <q-popup-proxy>
-           <Notification/>
-        </q-popup-proxy>
+              <Notification/>
+            </q-popup-proxy>
           </q-btn>
           <q-btn :to="{name: 'setting'}" flat color="white" round icon="settings" />
         </div>
@@ -52,7 +52,7 @@ export default {
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink, Notification
   },
 
   data () {
