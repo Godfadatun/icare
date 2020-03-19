@@ -30,7 +30,7 @@
               <Notification />
             </q-popup-proxy>
           </q-btn>
-          <q-btn flat color="white" round icon="settings" />
+          <q-btn :to="{name: 'setting'}" flat color="white" round icon="settings" />
         </div>
         <!-- <q-btn no-caps color="secondary" text-color="white" :to="{name: 'login'}" label="Login" /> -->
       </q-toolbar>
