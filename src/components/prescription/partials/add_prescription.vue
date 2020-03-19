@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card flat class="my-card">
-      <q-card-section class="row">
+      <!-- <q-card-section class="row">
         <div class="text-h6">Add New Prescription</div>
         <q-space />
         <q-input filled v-model="date">
@@ -21,16 +21,19 @@
             </q-icon>
           </template>
         </q-input>
-      </q-card-section>
+      </q-card-section> -->
       <q-card-section>
         <div class="row full-width">
-          <q-input class="col-xs-12 col-sm-6 q-pr-sm" v-model="text" type="text" label="Doctors Name" />
-          <q-input class="col-xs-12 col-sm-6 q-pl-sm" v-model="text" type="text" label="Doctors Phone" />
+          <q-input class="col-xs-12 col-sm-6 q-pr-sm" v-model="form.doctor_name" label="Doctors Name" />
+          <q-input class="col-xs-12 col-sm-6 q-pl-sm" v-model="form.doctor_phone" label="Doctors Phone" />
         </div>
-        <q-input v-model="text" type="text" label="Diagnosis" />
-        <q-input v-model="text" type="textarea" label="Doctors instruction" />
-
+        <q-input v-model="form.diagnosis" label="Diagnosis" />
+        <q-input v-model="form.doctor_instruction" type="textarea" label="Doctors instruction" />
       </q-card-section>
+
+       <q-btn color="primary" label="Save Prescription" @click="save_prescription" />
+
+
       <q-card-section>
         <div class="text-h6 text-bold">Medications</div>
         <div class="row q-gutter-xs">
@@ -81,6 +84,12 @@ export default {
   data () {
     return {
       date: new Date(),
+      form:{
+        doctor_name: '',
+        doctor_phone: '',
+        diagnosis: '',
+        doctor_instruction: ''
+      },
       data:[
         {
           name: 'Paracetamol',
@@ -116,6 +125,11 @@ export default {
   methods: {
     addDosageFnc(e){
       this.data.push(e)
+    },
+
+    async save_prescription(){
+      const response = this.$axios.post(process.env.Api + "prescription", this.form);
+      const data = response.data;
     }
   },
 }

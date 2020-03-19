@@ -4,7 +4,7 @@
       <q-toolbar-title>
         Your Prescription
       </q-toolbar-title>
-      <q-btn :to="{name: 'addPrescription'}"  size="sm" no-caps label="Add Prescription" icon="add"  />
+      <!-- <q-btn :to="{name: 'addPrescription'}"  size="sm" no-caps label="Add Prescription" icon="add"  /> -->
       <q-btn size="sm" no-caps label="Appointment Reminder" class="q-mr-xs gt-xs">
 
 
