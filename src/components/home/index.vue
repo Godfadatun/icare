@@ -14,14 +14,15 @@
         </div>
       </q-carousel-slide>
     </q-carousel>
-    <div class="text-h4 text-bold text-center">
-      How it Works
-    </div>
+
+
+
     <howitWorks :props="content" />
-    <div class="text-h4 text-bold text-center">
-      Services
-    </div>
+
+
+
     <services :props="my_services" />
+
   </div>
 </template>
 

@@ -6,15 +6,6 @@
           style="height: 450px"
         >
 
-          <div class="col-xs-12 col-sm-5 col-md-5 flex flex-center">
-            <div class="q-pa-md">
-              <q-date
-                v-model="date"
-                :events="events"
-                event-color="orange"
-              />
-            </div>
-          </div>
 
           <div class="col-xs-12 col-sm-7 col-md-7">
             <q-tab-panels
@@ -70,6 +61,17 @@
               </q-tab-panel>
             </q-tab-panels>
           </div>
+
+          <div class="col-xs-12 col-sm-5 col-md-5 flex flex-center">
+            <div class="q-pa-md">
+              <q-date
+                v-model="date"
+                :events="events"
+                event-color="orange"
+              />
+            </div>
+          </div>
+
         </div>
       </q-card-section>
 

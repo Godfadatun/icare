@@ -12,28 +12,31 @@
           class="lt-sm"
         />
 
-        <q-toolbar-title class="link" @click="$router.push({name: 'home'})">
-          ICare1
+        <q-toolbar-title class="link" @click="$router.push({ name: 'home' })">
+          iCare
         </q-toolbar-title>
 
-        <div class="row" v-if="route == 'prescription' || route == 'ambulance' || route == 'notification' || route == 'settings'">
-          <q-btn flat color="white" round icon="notifications" >
+        <div
+          class="row"
+          v-if="
+            route == 'prescription' ||
+              route == 'ambulance' ||
+              route == 'notification' ||
+              route == 'settings'
+          "
+        >
+          <q-btn flat color="white" round icon="notifications">
             <q-popup-proxy>
-           <Notification/>
-        </q-popup-proxy>
+              <Notification />
+            </q-popup-proxy>
           </q-btn>
           <q-btn flat color="white" round icon="settings" />
         </div>
-         <!-- <q-btn no-caps color="secondary" text-color="white" :to="{name: 'login'}" label="Login" /> -->
-
+        <!-- <q-btn no-caps color="secondary" text-color="white" :to="{name: 'login'}" label="Login" /> -->
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-1"
-    >
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-1">
       <q-list>
         <EssentialLink />
       </q-list>
@@ -46,61 +49,63 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink'
-import Notification from '../components/common/Notification'
+import EssentialLink from "components/EssentialLink";
+import Notification from "../components/common/Notification";
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
     EssentialLink
   },
 
-  data () {
+  data() {
     return {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev'
+          title: "Docs",
+          caption: "quasar.dev",
+          icon: "school",
+          link: "https://quasar.dev"
         },
         {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
+          title: "Github",
+          caption: "github.com/quasarframework",
+          icon: "code",
+          link: "https://github.com/quasarframework"
         },
         {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
+          title: "Discord Chat Channel",
+          caption: "chat.quasar.dev",
+          icon: "chat",
+          link: "https://chat.quasar.dev"
         },
         {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
+          title: "Forum",
+          caption: "forum.quasar.dev",
+          icon: "record_voice_over",
+          link: "https://forum.quasar.dev"
         },
         {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
+          title: "Twitter",
+          caption: "@quasarframework",
+          icon: "rss_feed",
+          link: "https://twitter.quasar.dev"
         },
         {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
+          title: "Facebook",
+          caption: "@QuasarFramework",
+          icon: "public",
+          link: "https://facebook.quasar.dev"
         }
       ]
-    }
+    };
   },
 
   computed: {
-    route(){return this.$route.name}
-  },
-}
+    route() {
+      return this.$route.name;
+    }
+  }
+};
 </script>
