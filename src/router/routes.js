@@ -3,39 +3,6 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-<<<<<<< HEAD
-      {
-        name: "login",
-        path: "login",
-        component: () => import("pages/Auth.vue")
-      },
-      {
-        name: "register",
-        path: "register",
-        component: () => import("pages/Auth.vue")
-      },
-      {
-        name: "forgot",
-        path: "forgot",
-        component: () => import("pages/Auth.vue")
-      },
-      { name: "home", path: "", component: () => import("pages/Index.vue") },
-      {
-        name: "prescription",
-        path: "prescription",
-        component: () => import("pages/Prescription.vue")
-      },
-      {
-        name: "pharmacy",
-        path: "pharmacy",
-        component: () => import("pages/Ambulance.vue")
-      },
-      {
-        name: "hospital",
-        path: "hospital",
-        component: () => import("pages/Ambulance.vue")
-      }
-=======
       { name: 'home', path: '', component: () => import('pages/Index.vue') },
       { name: 'prescription', path: 'prescription', component: () => import('pages/Prescription.vue') },
       { name: 'login', path: 'login', component: () => import('pages/Auth.vue') },
@@ -46,7 +13,6 @@ const routes = [
       { name: 'setting', path: 'setting', component: () => import('pages/Setting.vue') },
       { name: 'addPrescription', path: 'addPrescription', component: () => import('pages/AddPrescription.vue') },
 
->>>>>>> 26bb2765c94a7ae1a39115316a68da6ebbfb40de
     ]
   }
 ];
