@@ -4,7 +4,7 @@
       <q-toolbar-title>
         Your Prescription
       </q-toolbar-title>
-      <q-btn :to="{name: 'addPrescription'}"  size="sm" no-caps label="Add Prescription" icon="add"  />
+      <!-- <q-btn :to="{name: 'addPrescription'}"  size="sm" no-caps label="Add Prescription" icon="add"  /> -->
       <q-btn size="sm" no-caps label="Appointment Reminder" class="q-mr-xs gt-xs">
 
 
@@ -12,6 +12,7 @@
       <q-btn :to="{name: 'pharmacy'}" size="sm" no-caps label="Nearest Pharmacist" color="blue-7" class="q-mr-xs gt-xs" />
       <q-btn :to="{name: 'hospital'}" size="sm" no-caps color="negative" label="Nearest Clinic" class="gt-xs" />
     </q-toolbar>
+    <q-separator />
   </div>
 </template>
 

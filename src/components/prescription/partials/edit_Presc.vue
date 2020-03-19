@@ -1,10 +1,6 @@
 <template>
   <div>
-    <q-card bordered flat class="link flex flex-center text-primary" @click="alert = true" style="min-width: 150px">
-      <q-card-section>
-        <q-icon name="add" size="xl"/>
-      </q-card-section>
-    </q-card>
+    <q-btn round flat color="green" icon="edit" @click="alert = true"/>
     <q-dialog v-model="alert">
       <Dosage @dosage="$emit('dosage', $event)"/>
     </q-dialog>
@@ -43,10 +39,6 @@ export default {
       this.form = []
       this.alert = false
     }
-  },
-
-  computed: {
-    route(){return this.$route.name}
   },
 }
 </script>

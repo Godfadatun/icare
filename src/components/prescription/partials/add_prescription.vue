@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-card flat class="my-card">
-      <q-card-section class="row">
+      <!-- <q-card-section class="row">
         <div class="text-h6">Add New Prescription</div>
         <q-space />
         <q-input filled v-model="date">
@@ -21,15 +21,14 @@
             </q-icon>
           </template>
         </q-input>
-      </q-card-section>
+      </q-card-section> -->
       <q-card-section>
         <div class="row full-width">
-          <q-input class="col-xs-12 col-sm-6 q-pr-sm" v-model="text" type="text" label="Doctors Name" />
-          <q-input class="col-xs-12 col-sm-6 q-pl-sm" v-model="text" type="text" label="Doctors Phone" />
+          <q-input class="col-xs-12 col-sm-6 q-pr-sm" v-model="form.doctor_name" label="Doctors Name" />
+          <q-input class="col-xs-12 col-sm-6 q-pl-sm" v-model="form.doctor_phone" label="Doctors Phone" />
         </div>
-        <q-input v-model="text" type="text" label="Diagnosis" />
-        <q-input v-model="text" type="textarea" label="Doctors instruction" />
-
+        <q-input v-model="form.diagnosis" label="Diagnosis" />
+        <q-input v-model="form.doctor_instruction" type="textarea" label="Doctors instruction" />
       </q-card-section>
       <q-card-section>
         <div class="text-h6 text-bold">Medications</div>
@@ -41,7 +40,16 @@
                 <q-space />
                 <div>{{item.duration + ' days'}}</div>
               </div>
-              <div class="text-capitalize">{{item.type}}</div>
+
+
+              <div class="text-capitalize row">
+                <div>{{item.type}}</div>
+                <q-space />
+                <div class="row">
+                  <Editor @dosage="item = $event" />
+                  <q-btn round flat color="negative" icon="ion-trash" />
+                </div>
+              </div>
               <div class="row flex-center">
                 <div class="col-xs-12 col-sm-4 text-center  col-md-4 text-bold" v-if="item.morning">
                   <div class="text-caption">Morning</div>
@@ -67,20 +75,28 @@
           <Add @dosage="addDosageFnc"/>
         </div>
       </q-card-section>
+      <q-btn color="primary" label="Save Prescription" @click="save_prescription" />
     </q-card>
   </div>
 </template>
 
 <script>
 import Add from './addPresc'
+import Editor from './edit_Presc'
 export default {
   // name: 'ComponentName',
   components:{
-    Add
+    Add, Editor
   },
   data () {
     return {
       date: new Date(),
+      form:{
+        doctor_name: '',
+        doctor_phone: '',
+        diagnosis: '',
+        doctor_instruction: ''
+      },
       data:[
         {
           name: 'Paracetamol',
@@ -116,6 +132,18 @@ export default {
   methods: {
     addDosageFnc(e){
       this.data.push(e)
+    },
+
+    editDosageFnc(item, e){
+      console.log(item);
+      console.log(e);
+
+      // item = e
+    },
+
+    async save_prescription(){
+      const response = this.$axios.post(process.env.Api + "prescription", this.form);
+      const data = response.data;
     }
   },
 }
